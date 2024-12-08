@@ -43,7 +43,7 @@ bool word_Board<T>::update_board(int x, int y, T symbol ) {
     // Only update if move is valid
     if (!(x < 0 || x >= this->rows || y < 0 || y >= this->columns) ) {
             this->n_moves++ ;
-            this->board[x][y] = toupper(get_char());
+            this->board[x][y] = (symbol == 'x' ? toupper(get_char()) : 'A' + rand() % 26);
             return true;
         }
     return false;
@@ -171,21 +171,10 @@ word_Random_Player<T>::word_Random_Player(T symbol) : RandomPlayer<T>(symbol) {
 // Function to generate a random move
 template <typename T>
 void word_Random_Player<T>::getmove(int& x, int& y) {
-    bool validMove = false;
-    while (!validMove) {
+
         x = rand() % 3;  // Random row between 0 and 2
         y = rand() % 3;  // Random column between 0 and 2
 
-        // Randomly select a letter from A-Z
-        char letter = 'A' + rand() % 26;
-
-        // Check if the selected cell is empty
-        if (!(x < 0 || x >= this->rows || y < 0 || y >= this->columns || this->board[x][y]) == 'x') {
-            this->n_moves++ ;
-            this->board[x][y] = letter ;
-            validMove = true;
-        }
-    }
 }
 
 // AI player for Word Game
@@ -212,10 +201,10 @@ int main() {
 
     switch(choice) {
         case 1:
-            players[0] = new word_Player<char>(playerXName, 'X');
+            players[0] = new word_Player<char>(playerXName, 'x');
         break;
         case 2:
-            players[0] = new word_Random_Player<char>('X');
+            players[0] = new word_Random_Player<char>('o');
         break;
         case 3:
             //players[0] = new X_O_MinMax_Player<char>('X');
@@ -237,10 +226,10 @@ int main() {
 
     switch(choice) {
         case 1:
-            players[1] = new word_Player<char>(player2Name, 'O');
+            players[1] = new word_Player<char>(player2Name, 'x');
         break;
         case 2:
-            players[1] = new word_Random_Player<char>('O');
+            players[1] = new word_Random_Player<char>('o');
         break;
         case 3:
             //players[1] = new X_O_MinMax_Player<char>('O');
