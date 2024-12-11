@@ -151,7 +151,6 @@ bool X_O_Board<T>::is_win() {
     return false;
 }
 
-// Return true if 16 moves are done and no winner
 template <typename T>
 bool X_O_Board<T>::is_draw() {
 return  false;
