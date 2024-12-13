@@ -1,6 +1,4 @@
 
-#ifndef _3X3X_O_H
-#define _3X3X_O_H
 
 #include "BoardGame.h"
 
@@ -88,7 +86,7 @@ void X_O_Board<T>::display_board() {
         cout << "\n| ";
         for (int j = 0; j < this->columns; j++) {
             cout << "(" << i << "," << j << ")";
-            cout << setw(2) << this->board[i][j] << " |";
+            cout << setw(3) << this->board[i][j] << " |";
         }
         cout << "\n-----------------------------";
     }
