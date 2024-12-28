@@ -28,7 +28,7 @@ void main_Four_In_A_Row(){
         }else{
             cin.ignore();
             cout << "Invalid input, Try again: " << endl ;
-            cin >> choice ;
+            cin >> choice ; choice = toupper(choice) ;
         }
     }
 
@@ -58,7 +58,7 @@ void main_Four_In_A_Row(){
         }else{
             cin.ignore();
             cout << "Invalid input, Try again: " << endl ;
-            cin >> choice ;
+            cin >> choice ; choice = toupper(choice) ;
         }
     }
     

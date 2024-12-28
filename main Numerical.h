@@ -17,6 +17,7 @@ void main_numerical() {
     // Set up player 1
     cout << "Please, enter Player1 name: ";
     cin >> player1Name;
+    
     cout << "Choose Player1 type:\n";
     cout << "A) Human\n";
     cout << "B) Random Computer\n";
@@ -28,7 +29,7 @@ void main_numerical() {
         }else{
             cin.ignore();
             cout << "Invalid input, Try again: " << endl ;
-            cin >> choice ;
+            cin >> choice ; choice = toupper(choice) ;
         }
     }
 
@@ -52,12 +53,12 @@ void main_numerical() {
     cin >> choice; choice = toupper(choice) ;
 
     while(true){
-        if (toupper(choice) == 'A' && toupper(choice) == 'B'){
+        if (toupper(choice) == 'A' || toupper(choice) == 'B'){
             break ;
         }else{
             cin.ignore();
             cout << "Invalid input, Try again: " << endl ;
-            cin >> choice ;
+            cin >> choice ; choice = toupper(choice) ;
         }
     }
     

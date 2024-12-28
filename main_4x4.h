@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 #include "BoardGame_Classes.h"
-#include "Misere Tic Tac Toe.h"
+#include "4 x 4 Tic-Tac-Toe.h"
 
 void main_4x4(){
 
@@ -26,7 +26,7 @@ void main_4x4(){
         }else{
             cin.ignore();
             cout << "Invalid input, Try again: " << endl ;
-            cin >> choice ;
+            cin >> choice ;choice = toupper(choice) ;
         }
     }
 
@@ -35,7 +35,7 @@ void main_4x4(){
             players[0] = new _4x4_Player<char>(player1Name, 'X');
             break;
         case 'B':
-            players[0] = new _4x4_Random_Player<char>(player1Name,'X');
+            players[0] = new _4x4_Random_Player<char>(player1Name,'x');
             break;
         default:
            break ;
@@ -57,7 +57,7 @@ void main_4x4(){
         }else{
             cin.ignore();
             cout << "Invalid input, Try again: " << endl ;
-            cin >> choice ;
+            cin >> choice ; choice = toupper(choice) ;
         }
     }
 
@@ -66,7 +66,7 @@ void main_4x4(){
             players[1] = new _4x4_Player<char>(player2Name, 'O');
             break;
         case 'B':
-            players[1] = new _4x4_Random_Player<char>(player2Name,'O');
+            players[1] = new _4x4_Random_Player<char>(player2Name,'o');
             break;
         default:
           break ;

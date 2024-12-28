@@ -20,27 +20,28 @@ void main_Ultimate(){
     cout << "Choose Player1 type:\n";
     cout << "A) Human\n";
     cout << "B) Random Computer\n";
-    cin >> choice;
+    cin >> choice; choice = toupper(choice) ;
 
     while(true){
         if (toupper (choice) == 'A' || toupper(choice) == 'B'){
             break ;
         }else{
             cin.ignore();
-            cout << "Invalid input, Try again: " << endl ;
-            cin >> choice ;
+            cout << "Invalid input, Try again: "  ;
+            cin >> choice ;choice = toupper(choice) ;
         }
-    }  
+    }
+    cout << endl ;
 
     switch(choice) {
-        case 'A':
+        case 'A' :
             players[0] = new Ultimate_tic_tac_player<char>(player1Name, 'X');
             break;
-        case 'B':
+        case 'B' :
             players[0] = new Ultimate_tic_tac_Random_Player<char>('X');
             break;
         default:
-            break ;
+           break ;
     }
 
     // Set up player 2
@@ -51,7 +52,7 @@ void main_Ultimate(){
     cout << "Choose Player2 type:\n";
     cout << "A) Human\n";
     cout << "B) Random Computer\n";
-    cin >> choice;
+    cin >> choice; choice = toupper(choice) ;
 
     while(true){
         if (toupper (choice) == 'A' || toupper (choice) == 'B'){
@@ -59,7 +60,7 @@ void main_Ultimate(){
         }else{
             cin.ignore();
             cout << "Invalid input, Try again: " << endl ;
-            cin >> choice ;
+            cin >> choice ; choice = toupper(choice) ;
         }
     }
 
@@ -67,11 +68,11 @@ void main_Ultimate(){
         case 'A':
             players[1] = new Ultimate_tic_tac_player<char>(player2Name, 'O');
             break;
-        case 'B':
+        case 'B' :
             players[1] = new Ultimate_tic_tac_Random_Player<char>('O');
             break;
         default:
-           break ;
+              break ;
     }
 
     // Create the game manager and run the game

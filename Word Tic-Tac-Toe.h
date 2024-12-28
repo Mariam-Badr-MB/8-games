@@ -3,7 +3,6 @@
 
 #include "BoardGame_Classes.h"
 
-
 // Word game board class
 template <typename T>
 class word_Board : public Board<T> {
@@ -64,8 +63,9 @@ word_Board<T>::word_Board() {
 
 template <typename T>
 bool word_Board<T>::update_board(int x, int y, T symbol ) {
+
     // Only update if move is valid
-    if (!(x < 0 || x >= this->rows || y < 0 || y >= this->columns) ) {
+    if (!(x < 0 || x >= this->rows || y < 0 || y >= this->columns || this->board[x][y] != 'x' )) {
             this->n_moves++ ;
             this->board[x][y] = (symbol == 'x' ? toupper(get_char()) : 'A' + rand() % 26);
             return true;
